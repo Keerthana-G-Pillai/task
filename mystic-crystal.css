@@ -1,0 +1,682 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    min-height: 100vh;
+    overflow-x: hidden;
+
+    font-family: "Trebuchet MS", Arial, sans-serif;
+
+    background:
+        radial-gradient(circle at 50% 40%, #32105c 0%, #16052c 35%, #070312 75%);
+
+    color: white;
+}
+
+
+/* =========================
+   MAIN BOOTH
+========================= */
+
+.mystic-booth {
+    position: relative;
+
+    min-height: 100vh;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    padding: 50px 20px;
+
+    overflow: hidden;
+
+    text-align: center;
+}
+
+
+/* =========================
+   BACKGROUND STARS
+========================= */
+
+.stars {
+    position: absolute;
+    inset: 0;
+
+    pointer-events: none;
+
+    background-image:
+        radial-gradient(circle, rgba(255,255,255,.9) 1px, transparent 1px),
+        radial-gradient(circle, rgba(95,220,255,.7) 1px, transparent 1px);
+
+    background-size: 80px 80px, 130px 130px;
+
+    animation: starMove 12s linear infinite;
+
+    opacity: .5;
+}
+
+@keyframes starMove {
+
+    from {
+        transform: translateY(0);
+    }
+
+    to {
+        transform: translateY(-80px);
+    }
+}
+
+
+/* =========================
+   TITLE
+========================= */
+
+.eyebrow {
+    position: relative;
+
+    color: #67efff;
+
+    font-size: 13px;
+    letter-spacing: 5px;
+
+    margin-bottom: 12px;
+
+    text-shadow:
+        0 0 8px #00eaff,
+        0 0 20px #00eaff;
+}
+
+h1 {
+    position: relative;
+
+    font-size: clamp(38px, 7vw, 75px);
+
+    font-weight: 900;
+
+    letter-spacing: 6px;
+
+    color: white;
+
+    text-shadow:
+        0 0 8px #ff35f5,
+        0 0 25px #ff35f5,
+        0 0 50px #6a35ff;
+}
+
+.subtitle {
+    position: relative;
+
+    margin-top: 12px;
+
+    color: #d9bfff;
+
+    font-size: 16px;
+
+    letter-spacing: 2px;
+}
+
+
+/* =========================
+   CRYSTAL AREA
+========================= */
+
+.crystal-wrapper {
+    position: relative;
+
+    width: 420px;
+    height: 450px;
+
+    max-width: 90vw;
+
+    margin-top: 30px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+/* =========================
+   MAGIC RINGS
+========================= */
+
+.magic-ring {
+    position: absolute;
+
+    border: 2px solid rgba(91, 232, 255, .7);
+
+    border-radius: 50%;
+
+    pointer-events: none;
+
+    box-shadow:
+        0 0 10px #00eaff,
+        0 0 25px #9d36ff,
+        inset 0 0 15px rgba(0, 234, 255, .3);
+}
+
+.ring-1 {
+    width: 320px;
+    height: 320px;
+
+    animation: rotateRing 12s linear infinite;
+}
+
+.ring-2 {
+    width: 350px;
+    height: 180px;
+
+    border-color: rgba(255, 48, 245, .7);
+
+    transform: rotate(55deg);
+
+    animation: rotateRingReverse 9s linear infinite;
+}
+
+.ring-3 {
+    width: 380px;
+    height: 150px;
+
+    border-color: rgba(255, 255, 255, .35);
+
+    transform: rotate(-55deg);
+
+    animation: rotateRing 15s linear infinite;
+}
+
+@keyframes rotateRing {
+
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes rotateRingReverse {
+
+    from {
+        transform: rotate(360deg);
+    }
+
+    to {
+        transform: rotate(0deg);
+    }
+}
+
+
+/* =========================
+   CRYSTAL BALL
+========================= */
+
+.crystal-ball {
+    position: relative;
+
+    z-index: 5;
+
+    width: 245px;
+    height: 245px;
+
+    border-radius: 50%;
+
+    cursor: pointer;
+
+    background:
+        radial-gradient(
+            circle at 35% 25%,
+            rgba(255,255,255,.8),
+            transparent 10%
+        ),
+        radial-gradient(
+            circle at 65% 65%,
+            #ff24e7,
+            #7c1eff 45%,
+            #101b79 80%
+        );
+
+    border: 4px solid rgba(122, 243, 255, .9);
+
+    box-shadow:
+        0 0 10px #00eaff,
+        0 0 30px #00eaff,
+        0 0 70px #a832ff,
+        inset 0 0 40px rgba(255,255,255,.25);
+
+    animation:
+        crystalFloat 4s ease-in-out infinite,
+        crystalGlow 2.5s ease-in-out infinite alternate;
+
+    transition: transform .3s ease;
+}
+
+.crystal-ball:hover {
+    transform: scale(1.05);
+
+    box-shadow:
+        0 0 15px #00eaff,
+        0 0 50px #ff2eea,
+        0 0 100px #7a2cff,
+        inset 0 0 50px rgba(255,255,255,.35);
+}
+
+@keyframes crystalFloat {
+
+    0%, 100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-12px);
+    }
+}
+
+@keyframes crystalGlow {
+
+    from {
+        filter: brightness(1);
+    }
+
+    to {
+        filter: brightness(1.3);
+    }
+}
+
+
+/* =========================
+   INNER CRYSTAL
+========================= */
+
+.crystal-inner {
+    position: absolute;
+
+    inset: 15px;
+
+    border-radius: 50%;
+
+    overflow: hidden;
+
+    background:
+        radial-gradient(
+            ellipse at 50% 80%,
+            rgba(0,255,255,.7),
+            transparent 45%
+        );
+}
+
+
+/* =========================
+   SWIRLING ENERGY
+========================= */
+
+.swirl {
+    position: absolute;
+
+    width: 180px;
+    height: 80px;
+
+    border: 4px solid rgba(255,255,255,.5);
+
+    border-radius: 50%;
+
+    filter: blur(1px);
+
+    opacity: .7;
+}
+
+.swirl-1 {
+    top: 80px;
+    left: 25px;
+
+    transform: rotate(25deg);
+
+    animation: swirlMove 4s ease-in-out infinite;
+}
+
+.swirl-2 {
+    top: 115px;
+    left: 40px;
+
+    border-color: #66f6ff;
+
+    transform: rotate(-25deg);
+
+    animation: swirlMove 5s ease-in-out infinite reverse;
+}
+
+@keyframes swirlMove {
+
+    0%, 100% {
+        transform: rotate(25deg) scale(1);
+    }
+
+    50% {
+        transform: rotate(-25deg) scale(1.15);
+    }
+}
+
+
+/* =========================
+   CENTER SYMBOL
+========================= */
+
+.crystal-symbol {
+    position: absolute;
+
+    top: 50%;
+    left: 50%;
+
+    transform: translate(-50%, -50%);
+
+    font-size: 55px;
+
+    color: white;
+
+    text-shadow:
+        0 0 10px white,
+        0 0 25px #00eaff,
+        0 0 45px #ff29e9;
+
+    animation: symbolPulse 2s infinite;
+}
+
+@keyframes symbolPulse {
+
+    0%, 100% {
+        transform: translate(-50%, -50%) scale(1);
+    }
+
+    50% {
+        transform: translate(-50%, -50%) scale(1.2);
+    }
+}
+
+
+/* =========================
+   SPARKLES
+========================= */
+
+.sparkle {
+    position: absolute;
+
+    color: white;
+
+    text-shadow:
+        0 0 10px white,
+        0 0 20px #00eaff;
+
+    animation: sparkle 2s ease-in-out infinite;
+}
+
+.sparkle-1 {
+    top: 35px;
+    left: 50px;
+}
+
+.sparkle-2 {
+    right: 40px;
+    bottom: 55px;
+
+    animation-delay: .7s;
+}
+
+.sparkle-3 {
+    top: 65px;
+    right: 55px;
+
+    animation-delay: 1.2s;
+}
+
+@keyframes sparkle {
+
+    0%, 100% {
+        opacity: .3;
+        transform: scale(.7);
+    }
+
+    50% {
+        opacity: 1;
+        transform: scale(1.5);
+    }
+}
+
+
+/* =========================
+   CRYSTAL BASE
+========================= */
+
+.crystal-base {
+    position: absolute;
+
+    bottom: 15px;
+
+    width: 230px;
+    height: 100px;
+
+    z-index: 3;
+}
+
+.base-top {
+    position: absolute;
+
+    top: 5px;
+    left: 15px;
+
+    width: 200px;
+    height: 45px;
+
+    border-radius: 50%;
+
+    background:
+        linear-gradient(
+            135deg,
+            #54eaff,
+            #7b2cff 45%,
+            #ff28df
+        );
+
+    border: 3px solid #9cf7ff;
+
+    box-shadow:
+        0 0 20px #00eaff,
+        0 0 40px #9c2dff;
+}
+
+.base-body {
+    position: absolute;
+
+    bottom: 0;
+    left: 30px;
+
+    width: 170px;
+    height: 65px;
+
+    border-radius: 0 0 35px 35px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #32106a,
+            #a02cff,
+            #351074
+        );
+
+    border: 3px solid #8defff;
+
+    box-shadow:
+        0 0 25px #8c27ff,
+        inset 0 0 25px rgba(255,255,255,.2);
+}
+
+.base-glow {
+    position: absolute;
+
+    bottom: -20px;
+
+    left: 10px;
+
+    width: 210px;
+    height: 35px;
+
+    border-radius: 50%;
+
+    background: #ff29e8;
+
+    filter: blur(20px);
+
+    opacity: .5;
+}
+
+
+/* =========================
+   BUTTON
+========================= */
+
+#fortuneButton {
+    position: relative;
+
+    margin-top: 0;
+
+    padding: 16px 35px;
+
+    border: 2px solid #65efff;
+
+    border-radius: 30px;
+
+    background: rgba(31, 5, 61, .8);
+
+    color: white;
+
+    font-weight: bold;
+
+    letter-spacing: 2px;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 0 10px #00eaff,
+        0 0 25px rgba(255, 36, 231, .5);
+
+    transition: all .3s ease;
+}
+
+#fortuneButton:hover {
+    transform: scale(1.07);
+
+    background: #641aa0;
+
+    box-shadow:
+        0 0 15px #00eaff,
+        0 0 40px #ff29e8;
+}
+
+
+/* =========================
+   PREDICTION
+========================= */
+
+.prediction {
+    position: relative;
+
+    width: min(500px, 90vw);
+
+    min-height: 80px;
+
+    margin-top: 25px;
+
+    padding: 20px;
+
+    border: 1px solid rgba(104, 239, 255, .5);
+
+    border-radius: 15px;
+
+    background: rgba(20, 5, 40, .7);
+
+    box-shadow:
+        0 0 20px rgba(116, 37, 255, .4);
+
+    opacity: .8;
+}
+
+.prediction-icon {
+    font-size: 20px;
+}
+
+#predictionText {
+    margin-top: 8px;
+
+    color: #e8d5ff;
+
+    font-size: 15px;
+
+    letter-spacing: 1px;
+}
+
+
+/* =========================
+   SPIN EFFECT
+========================= */
+
+.crystal-ball.spinning {
+    animation: spinCrystal 1.2s ease-in-out;
+}
+
+@keyframes spinCrystal {
+
+    0% {
+        transform: scale(1) rotate(0deg);
+    }
+
+    40% {
+        transform: scale(1.15) rotate(180deg);
+    }
+
+    70% {
+        transform: scale(1.05) rotate(320deg);
+    }
+
+    100% {
+        transform: scale(1) rotate(360deg);
+    }
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 600px) {
+
+    .mystic-booth {
+        padding-top: 35px;
+    }
+
+    h1 {
+        font-size: 35px;
+
+        letter-spacing: 3px;
+    }
+
+    .subtitle {
+        font-size: 13px;
+    }
+
+    .crystal-wrapper {
+        transform: scale(.8);
+
+        margin-top: 10px;
+
+        margin-bottom: -40px;
+    }
+
+    #fortuneButton {
+        font-size: 12px;
+
+        padding: 14px 25px;
+    }
+}
